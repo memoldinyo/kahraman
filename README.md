@@ -67,7 +67,7 @@ Friday-afternoon cheers – and the OK button might just say *"Go for it"*.
 <img src="images/languages.png" alt="Kahraman in English, German, Turkish, French, Italian, Arabic, Chinese and Russian">
 
 Kahraman follows your Windows language automatically. You can switch it any time under
-**Settings › General › Language**.
+**Settings › General › Language**. Dates, times and decimal numbers follow your Windows region settings.
 
 ## Download & installation
 
