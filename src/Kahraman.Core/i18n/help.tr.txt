@@ -1,0 +1,62 @@
+KAHRAMAN – Soru soran zaman takibi
+==================================
+
+Kahraman, görev çubuğunun bildirim alanında küçük bir saat kadranı olarak yaşar.
+Dilediğin aralıklarla (1 dakika ile 24 saat arası) o an ne üzerinde çalıştığını sorar.
+Yanıtlarından bir rapor çıkar: Hangi işe ne kadar zaman gitti?
+
+Nasıl hesaplanır?
+-----------------
+• Her kayıt, bir önceki kayıttan bu yana geçen süreyi temsil eder.
+• Günün ilk kaydı yalnızca işe başlangıcı işaretler, kendisi sayılmaz.
+  İpucu: Sabahları kısaca "Başla" yaz.
+• Gece yarısı yeni bir gün başlar. Gece yarısından sonra bırakan, ertesi sabah
+  önce yine "Başla" yazar.
+• Saatler ondalık sayı olarak gösterilir (1 sa 15 dk = 1,25), bir gün 8 saattir.
+
+Kayıt girme
+-----------
+• Görev (solda) zorunludur, alt görev (ortada) ve yorum (sağda) isteğe bağlıdır.
+• En sağdaki ince şerit (veya Alt+K) yorum alanını gizler ve gösterir; gizliyken listeler genişler.
+• Alt görevlerin sağındaki ince şerit (veya Alt+U) onları gizler ve gösterir. Gizliyken yalnızca görev için bir alt görev önerildiğinde görünürler; Kahraman en son açık mı kapalı mı bıraktığını hatırlar.
+  Normalde gizlidir ve seçilen görev için bir yorum varsa kendiliğinden açılır
+  (en son kullanılan yorum önerilir). Kapatmak için: Ayarlar > Genel.
+• Listelerin en üstünde son kullanılan kayıtlar kalın yazılır.
+• Görev alanında F3, yazılan metni içeren bir sonraki göreve atlar.
+  Yukarı/aşağı ok tuşları listede gezinir.
+• Yeni bir görevde Kahraman, onu sonrası için hatırlayıp hatırlamayacağını sorar.
+• Listelerde sağ tık: kayıtları renkle işaretle veya listeden kaldır.
+  Daha önce kaydedilen süreler raporda kalır.
+• Alt görev listesinde sağ tık: şablon ekle veya şablonları düzenle.
+• Soru penceresi, yanıtlanana kadar diğer tüm pencerelerin üstünde kalır.
+  Pencereye hiç tıklanmadığı sürece Kahraman birkaç saniyede bir odağı almaya çalışır
+  (bunu izleyen ilk 1,5 saniyedeki tuş basışları yok sayılır).
+  İstersen, sen başka yerde çalıştığın sürece başlık çubuğu ya da görev çubuğundaki
+  simge yanıp söner ve pencere düzenli olarak sallanır (Ayarlar > Hatırlatma).
+  Orada soru penceresinin küçültülmesine de izin verebilirsin; o zaman pencere yeniden
+  açılana kadar görev çubuğunda yanıp söner.
+  Pencere kapatılamaz (X soluk görünür, Esc ve Alt+F4 çalışmaz) –
+  ancak bir kayıt yapıldığında kaybolur.
+
+Menü (saat kadranına sağ tık)
+-----------------------------
+Şimdi kaydet                     hemen bir kayıt yap (veya: çift tık)
+Kayıtları düzenle                filtrele, değiştir (Ctrl+E), öncesine kayıt ekle (Ctrl+A),
+                                 sil (Del), filtrelenen kayıtları yeniden adlandır
+Kayıtları içe aktar              başka bir bilgisayardaki kayıtları zaman sırasına yerleştir
+Metin dosyasından alt görevler   1. satır = görev (baş harfleri yeterli),
+                                 sonraki her satır = bir alt görev
+Rapor                            gün, hafta, ay, çeyrek, yıl veya serbest dönem;
+                                 görevlere, alt görevlere veya yorumlara göre;
+                                 Excel'e kopyalamak için günlük ayrıntılar
+Ayarlar                          veri klasörü, soru aralığı, otomatik başlatma, kısayollar,
+                                 görevleri rapordan gizleme,
+                                 hatırlatma (küçültme, yanıp sönme, sallanma)
+
+Veri klasöründeki dosyalar
+--------------------------
+taetigkeiten.kahraman    görevler, alt görevler ve şablonlar
+kullaniciadi.kahraman    kayıtların, her kayıt için bir satır
+Birden fazla kişi ağdaki ortak bir klasörü kullanabilir: Herkesin kendi kayıt dosyası
+vardır, görev listesi ortaktır. Kahraman her üzerine yazma işleminden önce bir *.bak
+yedeği oluşturur.

@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Kahraman.Core/Kahraman.Core.csproj" />
+    <Project Path="src/Kahraman/Kahraman.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Kahraman.Core.Tests/Kahraman.Core.Tests.csproj" />
+  </Folder>
+</Solution>

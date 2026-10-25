@@ -1,0 +1,62 @@
+KAHRAMAN – Zeiterfassung, die nachfragt
+=======================================
+
+Kahraman wohnt als kleines Zifferblatt im Infobereich der Taskleiste. In einem frei
+wählbaren Abstand (1 Minute bis 24 Stunden) fragt es, woran du gerade arbeitest.
+Aus den Antworten entsteht eine Auswertung: wofür ging wie viel Zeit drauf?
+
+So wird gerechnet
+-----------------
+• Jeder Eintrag steht für die Zeit seit dem vorherigen Eintrag.
+• Der erste Eintrag eines Tages markiert nur den Arbeitsbeginn und zählt selbst nicht.
+  Tipp: morgens einfach "Start" eintragen.
+• Um Mitternacht beginnt ein neuer Tag. Wer nach Mitternacht aufhört, trägt am
+  nächsten Morgen zuerst wieder "Start" ein.
+• Stunden erscheinen als Dezimalzahl (1 h 15 min = 1,25), ein Tag hat 8 Stunden.
+
+Eintragen
+---------
+• Tätigkeit (links) ist Pflicht, Untertätigkeit (Mitte) und Kommentar (rechts) sind optional.
+• Die schmale Leiste ganz rechts (oder Alt+K) klappt das Kommentarfeld ein und aus; eingeklappt werden die Listen breiter.
+• Die schmale Leiste rechts neben den Untertätigkeiten (oder Alt+U) klappt sie ein und aus. Eingeklappt erscheinen sie nur, wenn für die Tätigkeit eine Untertätigkeit vorgeschlagen wird; Kahraman merkt sich, ob du sie zuletzt auf- oder zugeklappt hast.
+  Normalerweise ist es eingeklappt und klappt von selbst auf, wenn für das gewählte Projekt ein Kommentar
+  vorhanden ist (der zuletzt dazu benutzte wird vorgeschlagen). Abschalten: Einstellungen > Allgemein.
+• Oben in den Listen stehen fett die zuletzt benutzten Einträge.
+• F3 im Tätigkeitsfeld springt zur nächsten Tätigkeit, die den getippten Text enthält.
+  Pfeil auf/ab blättert durch die Liste.
+• Bei einer neuen Tätigkeit fragt Kahraman, ob sie für später gemerkt werden soll.
+• Rechtsklick in den Listen: Einträge farbig markieren oder aus der Liste entfernen.
+  Bereits erfasste Zeiten bleiben dabei in der Auswertung.
+• Rechtsklick in der Untertätigkeiten-Liste: Vorlagen einfügen oder bearbeiten.
+• Die Abfrage bleibt über allen anderen Fenstern, bis sie beantwortet ist.
+  Solange man sie nie angeklickt hat, versucht Kahraman alle paar Sekunden, sich den Fokus
+  zu holen (Tastendrücke in den ersten 1,5 Sekunden danach werden verworfen).
+  Wahlweise blinken Titelleiste oder Taskleisten-Symbol, und das Fenster rüttelt sich
+  regelmäßig, solange man woanders arbeitet (Einstellungen > Erinnerung).
+  Dort lässt sich auch erlauben, die Abfrage zu minimieren; sie blinkt dann in der
+  Taskleiste, bis man sie wieder öffnet.
+  Schließen lässt sie sich nicht (das X ist ausgegraut, Esc und Alt+F4 wirken nicht) –
+  sie verschwindet erst mit einem Eintrag.
+
+Menü (Rechtsklick auf das Zifferblatt)
+--------------------------------------
+Jetzt eintragen                  sofort einen Eintrag machen (auch: Doppelklick)
+Einträge bearbeiten...           filtern, ändern (Strg+E), vorher einfügen (Strg+A),
+                                 löschen (Entf), gefilterte Einträge umbenennen
+Einträge importieren...          Einträge von einem anderen Rechner zeitlich einsortieren
+Untertätigkeiten aus Textdatei...  1. Zeile = Tätigkeit (Anfang genügt),
+                                 jede weitere Zeile = eine Untertätigkeit
+Auswertung...                    Tag, Woche, Monat, Quartal, Jahr oder freier Zeitraum,
+                                 nach Tätigkeiten, Untertätigkeiten oder Kommentaren,
+                                 Tagesdetails zum Kopieren nach Excel
+Einstellungen...                 Datenordner, Abfrageabstand, Autostart, Tastenkürzel,
+                                 Tätigkeiten aus der Auswertung ausblenden,
+                                 Erinnerung (Minimieren, Blinken, Rütteln)
+
+Dateien im Datenordner
+----------------------
+taetigkeiten.kahraman    Tätigkeiten, Untertätigkeiten und Vorlagen
+benutzername.kahraman    deine Einträge, eine Zeile pro Eintrag
+Mehrere Personen können einen gemeinsamen Ordner im Netz nutzen: Jede Person hat
+ihre eigene Eintragsdatei, die Tätigkeitenliste ist gemeinsam. Vor jedem Überschreiben
+legt Kahraman eine Sicherung *.bak an.

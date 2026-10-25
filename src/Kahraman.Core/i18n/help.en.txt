@@ -1,0 +1,62 @@
+KAHRAMAN – Time tracking that asks
+==================================
+
+Kahraman lives as a small clock face in the notification area of the taskbar. At an
+interval of your choice (1 minute to 24 hours) it asks what you are working on.
+Your answers add up to a report: where did how much time go?
+
+How time is counted
+-------------------
+• Each entry stands for the time since the previous entry.
+• The first entry of a day only marks the start of work and does not count itself.
+  Tip: just log "Start" in the morning.
+• A new day begins at midnight. If you finish after midnight, log "Start" again
+  first thing the next morning.
+• Hours are shown as decimals (1 h 15 min = 1.25); a day has 8 hours.
+
+Logging
+-------
+• The activity (left) is required; sub-activity (middle) and comment (right) are optional.
+• The narrow strip on the far right (or Alt+K) collapses and expands the comment field; when collapsed, the lists get wider.
+• The narrow strip to the right of the sub-activities (or Alt+U) collapses and expands them. When collapsed, they only appear if a sub-activity is suggested for the activity; Kahraman remembers whether you last expanded or collapsed them.
+  Normally it is collapsed and expands by itself when there is a comment for the selected project
+  (the one used most recently is suggested). To turn this off: Settings > General.
+• The most recently used entries are shown in bold at the top of the lists.
+• F3 in the activity field jumps to the next activity that contains the typed text.
+  Up/down arrows scroll through the list.
+• For a new activity, Kahraman asks whether it should be remembered for later.
+• Right-click in the lists: highlight entries in color or remove them from the list.
+  Time already logged stays in the report.
+• Right-click in the sub-activity list: insert or edit templates.
+• The question stays on top of all other windows until it is answered.
+  As long as you have never clicked it, Kahraman tries to grab the focus every few
+  seconds (keystrokes in the first 1.5 seconds after that are discarded).
+  Optionally the title bar or taskbar icon flashes, and the window shakes
+  regularly while you are working elsewhere (Settings > Reminders).
+  There you can also allow the question to be minimized; it then flashes in the
+  taskbar until you open it again.
+  It cannot be closed (the X is greyed out, Esc and Alt+F4 do nothing) –
+  it only goes away with an entry.
+
+Menu (right-click the clock face)
+---------------------------------
+Log now                          make an entry right away (also: double-click)
+Edit entries...                  filter, edit (Ctrl+E), insert before (Ctrl+A),
+                                 delete (Del), rename filtered entries
+Import entries...                merge entries from another computer in time order
+Sub-activities from text file... line 1 = activity (the beginning is enough),
+                                 every further line = one sub-activity
+Report...                        day, week, month, quarter, year or custom period,
+                                 by activities, sub-activities or comments,
+                                 daily details for copying to Excel
+Settings...                      data folder, interval, autostart, hotkeys,
+                                 hide activities from the report,
+                                 reminders (minimize, flash, shake)
+
+Files in the data folder
+------------------------
+taetigkeiten.kahraman    activities, sub-activities and templates
+username.kahraman        your entries, one line per entry
+Several people can share a folder on the network: each person has their own
+entries file, the activity list is shared. Before every overwrite, Kahraman
+creates a backup *.bak.

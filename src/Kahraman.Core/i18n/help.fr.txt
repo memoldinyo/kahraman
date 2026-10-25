@@ -1,0 +1,62 @@
+KAHRAMAN – le suivi du temps qui pose la question
+=================================================
+
+Kahraman vit sous la forme d'un petit cadran dans la zone de notification de la barre des tâches.
+À un intervalle de ton choix (de 1 minute à 24 heures), il te demande sur quoi tu travailles.
+Tes réponses donnent un bilan : combien de temps est passé à quoi ?
+
+Mode de calcul
+--------------
+• Chaque entrée représente le temps écoulé depuis l'entrée précédente.
+• La première entrée de la journée marque seulement le début du travail et ne compte pas elle-même.
+  Astuce : le matin, saisis simplement « Début ».
+• Une nouvelle journée commence à minuit. Si tu t'arrêtes après minuit, saisis d'abord
+  « Début » le lendemain matin.
+• Les heures s'affichent en nombre décimal (1 h 15 min = 1,25) ; une journée compte 8 heures.
+
+Saisie
+------
+• L'activité (à gauche) est obligatoire, la sous-activité (au milieu) et le commentaire (à droite) sont facultatifs.
+• La fine barre tout à droite (ou Alt+K) replie et déplie le champ commentaire ; replié, les listes s'élargissent.
+• La fine barre à droite des sous-activités (ou Alt+U) les replie et les déplie. Repliées, elles n'apparaissent que si une sous-activité est proposée pour l'activité ; Kahraman retient si tu les as dépliées ou repliées en dernier.
+  Normalement, il est replié et se déplie tout seul si un commentaire existe pour l'activité choisi
+  (le dernier utilisé est proposé). Pour désactiver : Paramètres > Général.
+• En haut des listes, les entrées utilisées récemment apparaissent en gras.
+• F3 dans le champ activité saute à la prochaine activité qui contient le texte tapé.
+  Les flèches haut/bas parcourent la liste.
+• Pour une nouvelle activité, Kahraman demande s'il faut la mémoriser pour plus tard.
+• Clic droit dans les listes : marquer les entrées en couleur ou les retirer de la liste.
+  Les temps déjà saisis restent dans le bilan.
+• Clic droit dans la liste des sous-activités : insérer ou modifier des modèles.
+• La question reste au-dessus de toutes les autres fenêtres, jusqu'à ce qu'on y réponde.
+  Tant qu'on n'a jamais cliqué dessus, Kahraman essaie toutes les quelques secondes de prendre le focus
+  (les touches pressées dans les 1,5 secondes qui suivent sont ignorées).
+  Au choix, la barre de titre ou l'icône de la barre des tâches clignote, et la fenêtre se secoue
+  régulièrement tant qu'on travaille ailleurs (Paramètres > Rappel).
+  On peut aussi y autoriser la réduction de la question ; elle clignote alors dans la
+  barre des tâches jusqu'à ce qu'on la rouvre.
+  Elle ne peut pas être fermée (le X est grisé, Échap et Alt+F4 sont sans effet) –
+  elle ne disparaît qu'avec une saisie.
+
+Menu (clic droit sur le cadran)
+-------------------------------
+Saisir maintenant                          saisir une entrée tout de suite (ou : double-clic)
+Modifier les entrées...                    filtrer, modifier (Ctrl+E), insérer avant (Ctrl+A),
+                                           supprimer (Suppr), renommer les entrées filtrées
+Importer des entrées...                    classer chronologiquement les entrées d'un autre ordinateur
+Sous-activités depuis un fichier texte...  1re ligne = activité (le début suffit),
+                                           chaque ligne suivante = une sous-activité
+Bilan...                                   jour, semaine, mois, trimestre, année ou période libre,
+                                           par activités, sous-activités ou commentaires,
+                                           détails par jour à copier dans Excel
+Paramètres...                              dossier de données, intervalle des questions, démarrage auto,
+                                           raccourcis, masquer des activités du bilan,
+                                           rappel (réduire, clignoter, secouer)
+
+Fichiers dans le dossier de données
+-----------------------------------
+taetigkeiten.kahraman      activités, sous-activités et modèles
+nomutilisateur.kahraman    tes entrées, une ligne par entrée
+Plusieurs personnes peuvent utiliser un dossier commun sur le réseau : chacune a son propre
+fichier d'entrées, la liste d'activités est commune. Avant chaque écrasement, Kahraman crée
+une sauvegarde *.bak.

@@ -1,0 +1,62 @@
+KAHRAMAN – il foglio ore che fa domande
+=======================================
+
+Kahraman vive come un piccolo quadrante nell'area di notifica della barra delle applicazioni.
+A intervalli a tua scelta (da 1 minuto a 24 ore) ti chiede a cosa stai lavorando.
+Dalle risposte nasce un riepilogo: quanto tempo è andato in cosa?
+
+Come si calcola
+---------------
+• Ogni voce rappresenta il tempo trascorso dalla voce precedente.
+• La prima voce della giornata segna solo l'inizio del lavoro e di per sé non conta.
+  Consiglio: al mattino registra semplicemente "Inizio".
+• A mezzanotte comincia un nuovo giorno. Se smetti dopo mezzanotte, la mattina dopo
+  registra di nuovo per prima cosa "Inizio".
+• Le ore compaiono come numero decimale (1 h 15 min = 1,25), un giorno ha 8 ore.
+
+Registrare
+----------
+• L'attività (a sinistra) è obbligatoria, sottoattività (al centro) e commento (a destra) sono facoltativi.
+• La striscia sottile all'estrema destra (o Alt+K) apre e chiude il campo commento; da chiuso, gli elenchi sono più larghi.
+• La striscia sottile a destra delle sottoattività (o Alt+U) le apre e le chiude. Da chiuse compaiono solo se per l'attività viene proposta una sottoattività; Kahraman ricorda se l'ultima volta le hai aperte o chiuse.
+  Di solito è chiuso e si apre da solo se per l'attività scelto esiste già un commento
+  (viene proposto l'ultimo usato). Per disattivarlo: Impostazioni > Generale.
+• In cima agli elenchi compaiono in grassetto le voci usate di recente.
+• F3 nel campo attività salta alla prossima attività che contiene il testo digitato.
+  Freccia su/giù scorre l'elenco.
+• Per un'attività nuova Kahraman chiede se memorizzarla per le volte successive.
+• Clic destro negli elenchi: evidenzia le voci a colori o toglile dall'elenco.
+  I tempi già registrati restano comunque nel riepilogo.
+• Clic destro nell'elenco delle sottoattività: inserisci o modifica i modelli.
+• La richiesta resta sopra tutte le altre finestre finché non rispondi.
+  Finché non ci hai mai cliccato sopra, Kahraman prova ogni pochi secondi a prendersi
+  il focus (i tasti premuti nel secondo e mezzo successivo vengono ignorati).
+  A scelta lampeggiano la barra del titolo o l'icona sulla barra delle applicazioni, e la
+  finestra si scuote regolarmente mentre lavori altrove (Impostazioni > Promemoria).
+  Lì puoi anche consentire di ridurre a icona la richiesta; in tal caso lampeggia sulla
+  barra delle applicazioni finché non la riapri.
+  Non si può chiudere (la X è disattivata, Esc e Alt+F4 non hanno effetto) –
+  sparisce solo dopo una registrazione.
+
+Menu (clic destro sul quadrante)
+--------------------------------
+Registra ora                       registra subito una voce (anche: doppio clic)
+Modifica voci...                   filtra, modifica (Ctrl+E), inserisci prima (Ctrl+A),
+                                   elimina (Canc), rinomina le voci filtrate
+Importa voci...                    inserisce in ordine cronologico voci da un altro computer
+Sottoattività da file di testo...  1ª riga = attività (basta l'inizio),
+                                   ogni riga successiva = una sottoattività
+Riepilogo...                       giorno, settimana, mese, trimestre, anno o periodo libero,
+                                   per attività, sottoattività o commenti,
+                                   dettagli giornalieri da copiare in Excel
+Impostazioni...                    cartella dati, intervallo delle domande, avvio automatico,
+                                   scorciatoie, attività da nascondere nel riepilogo,
+                                   promemoria (riduzione a icona, lampeggio, scossa)
+
+File nella cartella dati
+------------------------
+taetigkeiten.kahraman    attività, sottoattività e modelli
+nomeutente.kahraman      le tue voci, una riga per voce
+Più persone possono usare una cartella condivisa in rete: ognuno ha il proprio file
+delle voci, mentre l'elenco delle attività è comune. Prima di ogni sovrascrittura
+Kahraman crea una copia di sicurezza *.bak.

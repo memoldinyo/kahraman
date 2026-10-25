@@ -1,0 +1,64 @@
+KAHRAMAN – Zeiterfassung, die nachfragt
+=======================================
+
+Kahraman sitzt als kleines Zifferblatt im Infobereich der Taskleiste (unten rechts,
+eventuell hinter dem Pfeil ^) und fragt in einem einstellbaren Intervall, woran du
+gerade arbeitest. Die Auswertung zeigt dann, wofür du wie viel Zeit gebraucht hast.
+
+Sprachen: Deutsch, Englisch, Türkisch, Französisch, Italienisch, Arabisch, Chinesisch
+und Russisch. Kahraman richtet sich nach der Sprache von Windows; umstellen unter
+Einstellungen > Allgemein > Sprache.
+
+Darstellung: hell, dunkel oder wie Windows (Einstellungen > Allgemein > Darstellung).
+
+INSTALLATION
+------------
+1. Kahraman.exe starten (vorher aus dem ZIP entpacken).
+2. Falls Windows "Der Computer wurde durch Windows geschützt" meldet:
+   "Weitere Informationen" -> "Trotzdem ausführen". Das Programm ist (noch) nicht
+   digital signiert.
+3. Frage "Kahraman installieren?" mit Ja beantworten und die Lizenzbedingungen annehmen.
+   Kahraman wird nach %LOCALAPPDATA%\Programs\Kahraman kopiert, bekommt einen
+   Startmenü-Eintrag und startet künftig automatisch bei der Anmeldung.
+   Administratorrechte sind nicht nötig. Es wird nichts zusätzlich benötigt.
+   "Nein" startet Kahraman nur dieses eine Mal ohne Installation.
+
+Beim ersten Start fragt Kahraman nach dem Ordner für die Daten
+(Vorschlag: Dokumente\Kahraman Zeiterfassung).
+
+AKTUALISIEREN
+-------------
+Neue Kahraman.exe einfach starten und "aktualisieren" bestätigen. Die Daten bleiben erhalten.
+
+DEINSTALLIEREN
+--------------
+Windows-Einstellungen -> Apps -> "Kahraman Zeiterfassung" -> Deinstallieren.
+Die Daten (Logfile und Tätigkeiten) bleiben erhalten.
+
+KURZANLEITUNG
+-------------
+* Rechtsklick auf das Zifferblatt öffnet das Menü, Doppelklick heißt "Jetzt eintragen".
+* Ein Eintrag gilt für die Zeit seit dem vorherigen Eintrag. Der erste Eintrag des Tages
+  markiert nur den Arbeitsbeginn (z. B. "Start").
+* Tätigkeit ist Pflicht, Untertätigkeit und Kommentar sind optional.
+* Das Kommentarfeld ist normalerweise eingeklappt (die Listen sind dann breiter) und klappt
+  von selbst auf, wenn für das gewählte Projekt ein Kommentar vorhanden ist. Die schmale
+  Leiste ganz rechts (oder Alt+K) klappt es von Hand auf und zu.
+* Die Untertätigkeiten lassen sich genauso einklappen (Leiste rechts daneben oder Alt+U).
+  Eingeklappt erscheinen sie nur, wenn für die Tätigkeit eine vorgeschlagen wird; Kahraman
+  merkt sich, ob du sie zuletzt auf- oder zugeklappt hast.
+* Die Abfrage lässt sich nicht schließen, sie verschwindet erst mit einem Eintrag.
+* F3 im Tätigkeitsfeld sucht in der Liste, Rechtsklick in den Listen färbt Einträge ein
+  oder löscht sie.
+* Menü "Auswertung..." zeigt Stunden und Tage (8 h) pro Woche, Monat, Quartal und Jahr.
+* Ausführliche Hilfe: Menü "Hilfe...".
+
+LIZENZ
+------
+Kahraman ist Open Source unter der Apache-Lizenz 2.0: Nutzung, Änderung und Weitergabe
+sind kostenlos erlaubt. Die genauen Bedingungen stehen in LICENSE, die Hinweise zu den
+mitgelieferten .NET-Komponenten in NOTICE und DRITTANBIETER-LIZENZEN.txt.
+
+© 2026 Mehmet Aslandag
+
+Quellcode, Fehlermeldungen und Ideen: https://github.com/memoldinyo/kahraman

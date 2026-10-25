@@ -1,0 +1,9 @@
+Kahraman – time tracking that asks
+Copyright 2026 Mehmet Aslandag
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+Source code: https://github.com/memoldinyo/kahraman
+
+The release package includes the .NET runtime and Windows Forms
+(Copyright .NET Foundation and Contributors, MIT License); their license and
+third-party notices are shipped as DRITTANBIETER-LIZENZEN.txt.
