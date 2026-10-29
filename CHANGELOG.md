@@ -1,5 +1,13 @@
 # Änderungen
 
+## Unveröffentlicht
+
+### Projekt
+- Automatischer Build mit GitHub Actions (`.github/workflows/build.yml`): Tests und Paket bei jedem Push und
+  Pull Request; ein Tag `vX.Y.Z` legt einen Release-Entwurf mit dem Paket an.
+- README: Abschnitte *Privacy* und *Code signing policy* (Antrag auf kostenlose Signierung bei der SignPath
+  Foundation); CONTRIBUTING: Ablauf für Releases.
+
 ## 2.1.0 – 25.10.2026
 
 ### Open Source

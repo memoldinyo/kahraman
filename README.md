@@ -76,8 +76,8 @@ Kahraman follows your Windows language automatically. You can switch it any time
 
 1. Download **`Kahraman-<version>-win-x64.zip`** from the [latest release](../../releases/latest) and unzip it.
 2. Start **`Kahraman.exe`**.
-3. Windows may show *"Windows protected your PC"* because the app is not code-signed yet:
-   click **More info → Run anyway**.
+3. Windows may show *"Windows protected your PC"* because the app is not code-signed yet
+   (see [Code signing policy](#code-signing-policy)): click **More info → Run anyway**.
 4. Answer **Install Kahraman?** with **Yes** and confirm the license.
 
 Kahraman copies itself to `%LOCALAPPDATA%\Programs\Kahraman`, adds a Start menu entry and starts automatically when
@@ -105,6 +105,26 @@ Everything lives in a folder you pick (default: `Documents\Kahraman Time Trackin
 
 Kahraman keeps a `.bak` backup before every overwrite and never sends anything anywhere.
 
+## Privacy
+
+This program will not transfer any information to other networked systems unless specifically requested by the user
+or the person installing or operating it.
+
+Kahraman has no network code at all: no telemetry, no update check, no account. Your activities and entries stay in
+the data folder you choose (if that is a network drive, only that drive is used).
+
+## Code signing policy
+
+Free code signing provided by [SignPath.io](https://about.signpath.io/), certificate by
+[SignPath Foundation](https://signpath.org/).
+*The application to the SignPath Foundation is pending – until it is granted, releases are not signed yet.*
+
+- Every release is built from this repository's source code by [GitHub Actions](.github/workflows/build.yml);
+  only binaries built there are signed and published.
+- Committers and reviewers: [memoldinyo](https://github.com/memoldinyo)
+- Approvers (approve every signing request): [memoldinyo](https://github.com/memoldinyo)
+- All team members use multi-factor authentication for GitHub and SignPath.
+
 ## Build from source
 
 Requirements: Windows and the [.NET 10 SDK](https://dotnet.microsoft.com/download).
@@ -116,7 +136,8 @@ dotnet build Kahraman.slnx
 dotnet test tests/Kahraman.Core.Tests
 ```
 
-`build-release.ps1` creates the self-contained single-file package in `dist/`.
+`build-release.ps1` creates the self-contained single-file package in `dist/`. The same script runs on GitHub Actions
+for every push; pushing a tag `vX.Y.Z` creates a draft release with the package attached.
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the project layout, translations and how to send a pull request,
 and [CHANGELOG.md](CHANGELOG.md) for what changed in each version.
 

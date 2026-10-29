@@ -1,0 +1,64 @@
+# Baut und testet Kahraman bei jedem Push und Pull Request.
+# Ein Tag vX.Y.Z (gleich <Version> in Kahraman.csproj) legt zusätzlich einen Release-Entwurf mit dem Paket an.
+name: Build
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Version
+        id: version
+        shell: pwsh
+        run: |
+          $version = ([xml](Get-Content src/Kahraman/Kahraman.csproj)).Project.PropertyGroup.Version | Where-Object { $_ } | Select-Object -First 1
+          if ($env:GITHUB_REF_TYPE -eq 'tag' -and $env:GITHUB_REF_NAME -ne "v$version") {
+            throw "Tag $env:GITHUB_REF_NAME passt nicht zur Version $version in Kahraman.csproj"
+          }
+          "version=$version" >> $env:GITHUB_OUTPUT
+
+      - name: Test and package
+        shell: pwsh
+        run: ./build-release.ps1
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Kahraman-${{ steps.version.outputs.version }}-win-x64
+          path: dist/Kahraman-${{ steps.version.outputs.version }}-win-x64.zip
+          if-no-files-found: error
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: Kahraman-${{ needs.build.outputs.version }}-win-x64
+
+      - name: Draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >
+          gh release create "$GITHUB_REF_NAME" "Kahraman-${{ needs.build.outputs.version }}-win-x64.zip"
+          --repo "$GITHUB_REPOSITORY" --draft --title "Kahraman ${{ needs.build.outputs.version }}"
+          --notes "Built by GitHub Actions from $GITHUB_SHA. See CHANGELOG.md for the changes in this version."

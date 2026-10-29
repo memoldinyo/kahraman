@@ -69,7 +69,18 @@ Every language has three files in `src/Kahraman.Core/i18n/`: `ui.<code>.json` (i
 3. UI changes: please check light and dark mode, and Arabic (right-to-left) if layout is affected.
 4. Describe what and why in the PR; screenshots help.
 
+GitHub Actions (`.github/workflows/build.yml`) builds and tests every pull request.
+Pull requests from people outside the team are reviewed by a maintainer before they are merged
+(see the code signing policy in the [README](README.md#code-signing-policy)).
+
 Changes are listed in [CHANGELOG.md](CHANGELOG.md).
+
+## Releases
+
+1. Raise `<Version>` in `src/Kahraman/Kahraman.csproj` and add a section to `CHANGELOG.md`.
+2. Commit, then tag and push: `git tag v2.1.1` and `git push origin main v2.1.1`.
+3. GitHub Actions builds, tests and attaches `Kahraman-<version>-win-x64.zip` to a **draft** release.
+   Write the release notes and publish it. Only packages built there are published (and, once granted, signed via SignPath).
 
 ## License
 
