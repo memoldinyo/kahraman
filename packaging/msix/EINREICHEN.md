@@ -28,8 +28,8 @@ Dasselbe Paket baut GitHub Actions bei jedem Push (Artefakt `Kahraman-<Version>-
 3. **Age ratings** – Fragebogen: Kategorie *Productivity/Utility*, keine Nutzerinteraktion, keine Datenweitergabe,
    keine Käufe → ergibt meist „3+“ / „USK 0“.
 4. **Packages** – `Kahraman-<Version>-x64.msix` hochladen. Device family: nur *Desktop*.
-5. **Store listings** – je Sprache die Texte aus `STORE-LISTING.md` einfügen, dazu mindestens einen Screenshot
-   (z. B. `images/light-dark.png`, `images/report-en.png`, `images/settings-en-dark.png`).
+5. **Store listings** – je Sprache die Texte aus `STORE-LISTING.md` einfügen. Screenshots (1366×768) erzeugt
+   `testdata/store-shots.ps1` in `dist\store\screenshots`: `1-ask-<Sprache>.png`, `2-dark-mode.png`, `3-languages.png`.
 6. **Submission options › Restricted capabilities** – Begründung für `runFullTrust`:
 
    > Kahraman is a classic Win32 desktop application (Windows Forms, .NET). It needs runFullTrust to run as a
