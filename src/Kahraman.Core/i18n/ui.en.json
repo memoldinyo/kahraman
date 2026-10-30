@@ -114,6 +114,7 @@
   "settings.recent": "Recently used entries at the top of the lists (number, 0 = off):",
   "settings.commentAuto": "&Expand the comment field only when it contains something",
   "settings.autostart": "&Start Kahraman automatically when signing in to Windows",
+  "settings.autostartStore": "Manage autostart: Windows Settings › Apps › Startup",
   "settings.included": "Shown in the report:",
   "settings.excluded": "Hidden from the report:",
   "settings.exclude": "&Hide >",

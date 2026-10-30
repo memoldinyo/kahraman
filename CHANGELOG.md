@@ -1,12 +1,17 @@
 # Änderungen
 
-## Unveröffentlicht
+## 2.1.1 – 30.10.2026
+
+### Neu
+- **Microsoft Store:** Kahraman gibt es als Paket „Kahraman Time Tracker“ (von Microsoft signiert, aktualisiert sich
+  selbst). `build-msix.ps1` baut es, `packaging/msix/` enthält Manifest, Symbole, Store-Texte in 8 Sprachen und die
+  Anleitung zum Einreichen. Als Store-Paket überlässt Kahraman Installation, Updates und Autostart Windows;
+  in den Einstellungen führt ein Link zu *Windows-Einstellungen › Apps › Autostart*.
 
 ### Projekt
-- Automatischer Build mit GitHub Actions (`.github/workflows/build.yml`): Tests und Paket bei jedem Push und
-  Pull Request; ein Tag `vX.Y.Z` legt einen Release-Entwurf mit dem Paket an.
-- README: Abschnitte *Privacy* und *Code signing policy* (Antrag auf kostenlose Signierung bei der SignPath
-  Foundation); CONTRIBUTING: Ablauf für Releases.
+- Automatischer Build mit GitHub Actions (`.github/workflows/build.yml`): Tests, ZIP- und Store-Paket bei jedem
+  Push und Pull Request; ein Tag `vX.Y.Z` legt einen Release-Entwurf mit dem ZIP-Paket an.
+- README: Abschnitte *Privacy* und *Code signing policy*; CONTRIBUTING: Ablauf für Releases.
 
 ## 2.1.0 – 25.10.2026
 

@@ -33,6 +33,7 @@ Kahraman.exe --settings C:\temp\test-settings.json --portable
 | `testdata/` | helper scripts: demo data, screenshots, UI checks (use their own settings files and demo data only) |
 | `images/` | pictures for this README |
 | `build-release.ps1` | builds `dist/Kahraman-<version>-win-x64.zip` (self-contained single EXE) |
+| `build-msix.ps1`, `packaging/msix/` | Microsoft Store package (manifest, logos, identity, listing texts, submission guide) |
 
 Code comments are mostly German; English comments are just as welcome.
 
@@ -80,7 +81,12 @@ Changes are listed in [CHANGELOG.md](CHANGELOG.md).
 1. Raise `<Version>` in `src/Kahraman/Kahraman.csproj` and add a section to `CHANGELOG.md`.
 2. Commit, then tag and push: `git tag v2.1.1` and `git push origin main v2.1.1`.
 3. GitHub Actions builds, tests and attaches `Kahraman-<version>-win-x64.zip` to a **draft** release.
-   Write the release notes and publish it. Only packages built there are published (and, once granted, signed via SignPath).
+   Write the release notes and publish it. Only packages built there are published.
+4. Microsoft Store: upload `Kahraman-<version>-x64.msix` from the same run (artifact `Kahraman-<version>-msix`),
+   see `packaging/msix/EINREICHEN.md`.
+
+The same EXE runs both ways: as a Store package (`Installer.IsPackaged`) Windows handles installation, updates and
+autostart, so Kahraman's own installer stays out of the way.
 
 ## License
 

@@ -74,6 +74,14 @@ Kahraman follows your Windows language automatically. You can switch it any time
 
 ## Download & installation
 
+### Microsoft Store
+
+Kahraman is on its way to the Microsoft Store as **[Kahraman Time Tracker](https://apps.microsoft.com/detail/9N8VTGX1XRK1)**
+(the link works once Microsoft has certified it). The Store version is signed by Microsoft, installs without any
+warning, updates itself and can be switched off at sign-in under *Windows Settings › Apps › Startup*.
+
+### Download from GitHub
+
 1. Download **`Kahraman-<version>-win-x64.zip`** from the [latest release](../../releases/latest) and unzip it.
 2. Start **`Kahraman.exe`**.
 3. Windows may show *"Windows protected your PC"* because the app is not code-signed yet
@@ -115,15 +123,11 @@ the data folder you choose (if that is a network drive, only that drive is used)
 
 ## Code signing policy
 
-Free code signing provided by [SignPath.io](https://about.signpath.io/), certificate by
-[SignPath Foundation](https://signpath.org/).
-*The application to the SignPath Foundation is pending – until it is granted, releases are not signed yet.*
-
+- The **Microsoft Store** package is signed by Microsoft.
+- The **GitHub downloads** are not code-signed yet, which is why Windows may warn when you start them.
 - Every release is built from this repository's source code by [GitHub Actions](.github/workflows/build.yml);
-  only binaries built there are signed and published.
+  only packages built there are published.
 - Committers and reviewers: [memoldinyo](https://github.com/memoldinyo)
-- Approvers (approve every signing request): [memoldinyo](https://github.com/memoldinyo)
-- All team members use multi-factor authentication for GitHub and SignPath.
 
 ## Build from source
 
@@ -136,8 +140,9 @@ dotnet build Kahraman.slnx
 dotnet test tests/Kahraman.Core.Tests
 ```
 
-`build-release.ps1` creates the self-contained single-file package in `dist/`. The same script runs on GitHub Actions
-for every push; pushing a tag `vX.Y.Z` creates a draft release with the package attached.
+`build-release.ps1` creates the self-contained single-file package in `dist/`, `build-msix.ps1` the Microsoft Store
+package. Both run on GitHub Actions for every push; pushing a tag `vX.Y.Z` creates a draft release with the package
+attached.
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the project layout, translations and how to send a pull request,
 and [CHANGELOG.md](CHANGELOG.md) for what changed in each version.
 

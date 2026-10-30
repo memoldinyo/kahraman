@@ -137,9 +137,11 @@ public sealed class SettingsForm : Form
         g.Controls.Add(chkCommentAuto, 0, 6);
         g.SetColumnSpan(chkCommentAuto, 2);
 
-        chkAutostart.Margin = new Padding(3, 12, 3, 3);
-        g.Controls.Add(chkAutostart, 0, 7);
-        g.SetColumnSpan(chkAutostart, 2);
+        // Im Store-Paket regelt Windows den Autostart (Einstellungen › Apps › Autostart): dorthin verlinken.
+        Control autostart = Installer.IsPackaged ? AutostartLink() : chkAutostart;
+        autostart.Margin = new Padding(3, 12, 3, 3);
+        g.Controls.Add(autostart, 0, 7);
+        g.SetColumnSpan(autostart, 2);
         page.Controls.Add(g);
 
         // Darstellung und Sprache ganz oben; der Zusatz "(Language)" hilft, falls man die eingestellte Sprache nicht lesen kann.
@@ -154,6 +156,18 @@ public sealed class SettingsForm : Form
         top.Controls.Add(cbLanguage, 1, 1);
         page.Controls.Add(top);
         return page;
+    }
+
+    static LinkLabel AutostartLink()
+    {
+        var link = new LinkLabel
+        {
+            Text = L.T("settings.autostartStore"), AutoSize = true, MaximumSize = new Size(520, 0),
+            LinkColor = Theme.Current.Accent, ActiveLinkColor = Theme.Current.Accent, LinkBehavior = LinkBehavior.HoverUnderline,
+        };
+        link.LinkClicked += (_, _) =>
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo("ms-settings:startupapps") { UseShellExecute = true });
+        return link;
     }
 
     TabPage BuildEvaluation()
@@ -277,7 +291,7 @@ public sealed class SettingsForm : Form
         s.HotkeyFinish = hkFinish.Hotkey;
         s.HotkeyEdit = hkEdit.Hotkey;
         s.ExcludedActivities = lbIgnore.Items.Cast<string>().ToList();
-        s.Autostart = chkAutostart.Checked;
+        if (!Installer.IsPackaged) s.Autostart = chkAutostart.Checked;
         s.CommentOnlyWhenFilled = chkCommentAuto.Checked;
         s.Language = cbLanguage.SelectedIndex <= 0 ? null : L.All[cbLanguage.SelectedIndex - 1].Code;
         L.Use(s.Language);
@@ -289,7 +303,7 @@ public sealed class SettingsForm : Form
         s.Shake = chkShake.Checked;
         s.ShakeMinutes = (int)numShake.Value;
         s.ShakeSound = chkShakeSound.Checked;
-        SetAutostart(chkAutostart.Checked);
+        if (!Installer.IsPackaged) SetAutostart(chkAutostart.Checked);
         s.Save();
         DialogResult = DialogResult.OK;
         Close();

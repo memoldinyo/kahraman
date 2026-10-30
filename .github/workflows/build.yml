@@ -1,5 +1,6 @@
 # Baut und testet Kahraman bei jedem Push und Pull Request.
-# Ein Tag vX.Y.Z (gleich <Version> in Kahraman.csproj) legt zusätzlich einen Release-Entwurf mit dem Paket an.
+# Ein Tag vX.Y.Z (gleich <Version> in Kahraman.csproj) legt zusätzlich einen Release-Entwurf mit dem ZIP-Paket an;
+# das Store-Paket (.msix) liegt als Artefakt des Laufs bereit.
 name: Build
 
 on:
@@ -42,6 +43,17 @@ jobs:
         with:
           name: Kahraman-${{ steps.version.outputs.version }}-win-x64
           path: dist/Kahraman-${{ steps.version.outputs.version }}-win-x64.zip
+          if-no-files-found: error
+
+      # Store-Paket (unsigniert, der Store signiert es selbst): zum Hochladen ins Partner Center.
+      - name: Store package
+        shell: pwsh
+        run: ./build-msix.ps1
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: Kahraman-${{ steps.version.outputs.version }}-msix
+          path: dist/Kahraman-${{ steps.version.outputs.version }}-x64.msix
           if-no-files-found: error
 
   release:

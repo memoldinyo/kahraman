@@ -114,6 +114,7 @@
   "settings.recent": "Недавние записи вверху списков (количество, 0 = выкл.):",
   "settings.commentAuto": "Открывать поле &комментария, только если в нём есть текст",
   "settings.autostart": "&Запускать Kahraman при входе в Windows",
+  "settings.autostartStore": "Управление автозапуском: Параметры Windows › Приложения › Автозагрузка",
   "settings.included": "В отчёте:",
   "settings.excluded": "Скрыто из отчёта:",
   "settings.exclude": "&Скрыть >",

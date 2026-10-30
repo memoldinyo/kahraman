@@ -114,6 +114,7 @@
   "settings.recent": "Voci usate di recente in cima agli elenchi (quante, 0 = disattivato):",
   "settings.commentAuto": "Apri il campo &commento solo se contiene del testo",
   "settings.autostart": "&Avvia Kahraman automaticamente all'accesso a Windows",
+  "settings.autostartStore": "Gestisci avvio automatico: Impostazioni di Windows › App › Avvio",
   "settings.included": "Nel riepilogo:",
   "settings.excluded": "Esclusi dal riepilogo:",
   "settings.exclude": "&Nascondi >",

@@ -114,6 +114,7 @@
   "settings.recent": "Entrées récentes en haut des listes (nombre, 0 = désactivé) :",
   "settings.commentAuto": "N'ouvrir le champ &commentaire que s'il contient du texte",
   "settings.autostart": "&Démarrer Kahraman automatiquement à l'ouverture de session Windows",
+  "settings.autostartStore": "Gérer le démarrage automatique : Paramètres Windows › Applications › Démarrage",
   "settings.included": "Dans le bilan :",
   "settings.excluded": "Hors du bilan :",
   "settings.exclude": "&Masquer >",

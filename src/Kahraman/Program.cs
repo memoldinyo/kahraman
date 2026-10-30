@@ -21,7 +21,7 @@ static class Program
 
         if (args.Contains("--uninstall"))
         {
-            Installer.Uninstall();
+            if (!Installer.IsPackaged) Installer.Uninstall();
             return;
         }
 
@@ -31,8 +31,8 @@ static class Program
             : args.Contains("--beenden") ? StartCommand.Beenden
             : StartCommand.Eingabe;
 
-        // Heruntergeladene Datei: Installation anbieten (außer im portablen oder Test-Betrieb).
-        if (settingsArg is null && command != StartCommand.Beenden && !args.Contains("--portable")
+        // Heruntergeladene Datei: Installation anbieten (außer im portablen oder Test-Betrieb und im Store-Paket).
+        if (settingsArg is null && command != StartCommand.Beenden && !args.Contains("--portable") && !Installer.IsPackaged
             && !Installer.IsInstalledCopy && !Installer.CurrentExeIsRunning()
             && Installer.OfferInstall())
             return;

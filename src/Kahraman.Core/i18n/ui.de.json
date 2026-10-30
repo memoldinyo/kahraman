@@ -114,6 +114,7 @@
   "settings.recent": "Zuletzt benutzte Einträge oben in den Listen (Anzahl, 0 = aus):",
   "settings.commentAuto": "&Kommentarfeld nur aufklappen, wenn darin etwas steht",
   "settings.autostart": "Kahraman beim Anmelden an Windows automatisch &starten",
+  "settings.autostartStore": "Autostart verwalten: Windows-Einstellungen › Apps › Autostart",
   "settings.included": "In der Auswertung:",
   "settings.excluded": "Nicht in der Auswertung:",
   "settings.exclude": "&Ausblenden >",

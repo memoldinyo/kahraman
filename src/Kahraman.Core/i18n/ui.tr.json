@@ -114,6 +114,7 @@
   "settings.recent": "Listelerin başında son kullanılanlar (adet, 0 = kapalı):",
   "settings.commentAuto": "Yorum alanını yalnızca içi doluysa &aç",
   "settings.autostart": "Windows'ta oturum açılınca Kahraman'ı otomatik &başlat",
+  "settings.autostartStore": "Otomatik başlatmayı yönet: Windows Ayarları › Uygulamalar › Başlangıç",
   "settings.included": "Raporda:",
   "settings.excluded": "Raporda değil:",
   "settings.exclude": "&Gizle >",

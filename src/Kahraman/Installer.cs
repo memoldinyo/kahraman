@@ -29,6 +29,23 @@ static class Installer
 
     public static bool IsInstalledCopy => SamePath(CurrentExe, InstalledExe);
 
+    /// <summary>
+    /// Läuft Kahraman als Paket aus dem Microsoft Store? Dann übernimmt Windows Installation, Autostart,
+    /// Updates und Deinstallation – die eigene Installation bleibt aus.
+    /// </summary>
+    public static bool IsPackaged { get; } = DetectPackage();
+
+    static bool DetectPackage()
+    {
+        const int AppModelErrorNoPackage = 15700;
+        int length = 0;
+        try { return GetCurrentPackageFullName(ref length, null) != AppModelErrorNoPackage; }
+        catch (EntryPointNotFoundException) { return false; }
+    }
+
+    [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
+    static extern int GetCurrentPackageFullName(ref int packageFullNameLength, char[]? packageFullName);
+
     /// <summary>Läuft diese Datei bereits (als anderer Prozess)?</summary>
     public static bool CurrentExeIsRunning() => RunningInstances(CurrentExe).Count > 0;
 

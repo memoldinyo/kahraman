@@ -13,6 +13,10 @@ Darstellung: hell, dunkel oder wie Windows (Einstellungen > Allgemein > Darstell
 
 INSTALLATION
 ------------
+Kahraman gibt es auch im Microsoft Store als "Kahraman Time Tracker" (von Microsoft
+signiert, aktualisiert sich selbst). Bitte entweder die Store-Version oder diesen
+Download nutzen, nicht beides.
+
 1. Kahraman.exe starten (vorher aus dem ZIP entpacken).
 2. Falls Windows "Der Computer wurde durch Windows geschützt" meldet:
    "Weitere Informationen" -> "Trotzdem ausführen". Das Programm ist (noch) nicht

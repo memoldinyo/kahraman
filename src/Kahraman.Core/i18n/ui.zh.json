@@ -114,6 +114,7 @@
   "settings.recent": "在列表顶部显示最近使用的条目（数量，0 = 关闭）：",
   "settings.commentAuto": "仅在备注栏有内容时才展开(&E)",
   "settings.autostart": "登录 Windows 时自动启动 Kahraman(&S)",
+  "settings.autostartStore": "管理自动启动：Windows 设置 › 应用 › 启动",
   "settings.included": "统计中包含：",
   "settings.excluded": "统计中不包含：",
   "settings.exclude": "隐藏(&H) >",

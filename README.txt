@@ -12,6 +12,9 @@ Appearance: light, dark or same as Windows (Settings > General > Appearance).
 
 INSTALLATION
 ------------
+Also available in the Microsoft Store as "Kahraman Time Tracker" (signed by Microsoft,
+updates automatically). Use either the Store version or this download, not both.
+
 1. Unpack the ZIP and start Kahraman.exe.
 2. If Windows shows "Windows protected your PC": click "More info" -> "Run anyway".
    The program is not (yet) digitally signed.

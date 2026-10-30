@@ -114,6 +114,7 @@
   "settings.recent": "الإدخالات المستخدمة مؤخرًا أعلى القوائم (العدد، 0 = إيقاف):",
   "settings.commentAuto": "ا&فتح حقل التعليق فقط إذا كان فيه نص",
   "settings.autostart": "&شغّل Kahraman تلقائيًا عند تسجيل الدخول إلى Windows",
+  "settings.autostartStore": "إدارة التشغيل التلقائي: إعدادات Windows › التطبيقات › بدء التشغيل",
   "settings.included": "ضمن التقرير:",
   "settings.excluded": "خارج التقرير:",
   "settings.exclude": "إ&خفاء",

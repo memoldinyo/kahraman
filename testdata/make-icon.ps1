@@ -1,9 +1,11 @@
 param(
   [string]$Template = "$(Split-Path $PSScriptRoot)\src\Kahraman\IconVorlage.png",
   [string]$Ico = "$(Split-Path $PSScriptRoot)\src\Kahraman\kahraman.ico",
-  [string]$Png = "$(Split-Path $PSScriptRoot)\images\icon.png")
+  [string]$Png = "$(Split-Path $PSScriptRoot)\images\icon.png",
+  [string]$Assets = "$(Split-Path $PSScriptRoot)\packaging\msix\Assets")
 # Programmsymbol aus der Vorlage: grauen Hintergrund außerhalb des Zifferblatts durchsichtig machen,
-# quadratisch zuschneiden und als .ico (PNG-komprimiert, mehrere Größen) und icon.png (256) speichern.
+# quadratisch zuschneiden und als .ico (PNG-komprimiert, mehrere Größen), icon.png (256) und
+# Symbole für das Store-Paket (Kacheln, Taskleiste, Store-Logo in mehreren Größen) speichern.
 Add-Type -AssemblyName System.Drawing
 $src = [System.Drawing.Image]::FromFile($Template)
 $bmp = New-Object System.Drawing.Bitmap $src
@@ -67,5 +69,30 @@ for ($i = 0; $i -lt $sizes.Count; $i++) {
 foreach ($img in $images) { $bw.Write($img) }
 $bw.Dispose()
 $big = Scaled 256; $big.Save($Png, [System.Drawing.Imaging.ImageFormat]::Png); $big.Dispose()
+
+# Store-Paket: Symbol mittig auf durchsichtiger Fläche (Breite x Höhe, Symbolgröße).
+function Tile($width, $height, $icon, $file) {
+  $b = New-Object System.Drawing.Bitmap $width, $height
+  $g = [System.Drawing.Graphics]::FromImage($b)
+  $g.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
+  $g.PixelOffsetMode = [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
+  $g.CompositingQuality = [System.Drawing.Drawing2D.CompositingQuality]::HighQuality
+  $g.Clear([System.Drawing.Color]::Transparent)
+  $g.DrawImage($square, [int](($width - $icon) / 2), [int](($height - $icon) / 2), $icon, $icon)
+  $g.Dispose(); $b.Save((Join-Path $Assets $file), [System.Drawing.Imaging.ImageFormat]::Png); $b.Dispose()
+}
+New-Item -ItemType Directory -Force $Assets | Out-Null
+Get-ChildItem $Assets -Filter *.png | Remove-Item
+foreach ($scale in 100, 200) {
+  $f = $scale / 100
+  Tile (44 * $f) (44 * $f) (44 * $f) "Square44x44Logo.scale-$scale.png"
+  Tile (150 * $f) (150 * $f) (100 * $f) "Square150x150Logo.scale-$scale.png"
+  Tile (310 * $f) (150 * $f) (100 * $f) "Wide310x150Logo.scale-$scale.png"
+  Tile (50 * $f) (50 * $f) (50 * $f) "StoreLogo.scale-$scale.png"
+}
+foreach ($size in 16, 24, 32, 48, 256) {
+  Tile $size $size $size "Square44x44Logo.targetsize-$size.png"
+  Tile $size $size $size "Square44x44Logo.targetsize-${size}_altform-unplated.png"
+}
 $square.Dispose()
-"Icon: $Ico ($($sizes -join ', ') px), PNG: $Png"
+"Icon: $Ico ($($sizes -join ', ') px), PNG: $Png, Store-Symbole: $Assets"
