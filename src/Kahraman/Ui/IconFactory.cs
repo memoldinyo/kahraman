@@ -21,10 +21,10 @@ public static class IconFactory
         return Clock(32, DateTime.Now);
     }
 
-    /// <summary>Zeichnet ein Zifferblatt mit der angegebenen Uhrzeit.</summary>
-    public static Icon Clock(int size, DateTime time, bool pending = false)
+    /// <summary>Zeichnet ein Zifferblatt mit der angegebenen Uhrzeit (grau, solange Kahraman pausiert).</summary>
+    public static Icon Clock(int size, DateTime time, bool pending = false, bool paused = false)
     {
-        using var bmp = ClockBitmap(size, time.Hour % 12 + time.Minute / 60.0, time.Minute, pending);
+        using var bmp = ClockBitmap(size, time.Hour % 12 + time.Minute / 60.0, time.Minute, pending, paused);
         var hIcon = bmp.GetHicon();
         try { return (Icon)Icon.FromHandle(hIcon).Clone(); }
         finally { DestroyIcon(hIcon); }
@@ -35,7 +35,7 @@ public static class IconFactory
 
     /// <param name="hour">Stellung des Stundenzeigers (0–12, Bruchteile erlaubt).</param>
     /// <param name="minute">Stellung des Minutenzeigers (0–60).</param>
-    static Bitmap ClockBitmap(int size, double hour, double minute, bool pending)
+    static Bitmap ClockBitmap(int size, double hour, double minute, bool pending, bool paused = false)
     {
         var bmp = new Bitmap(size, size);
         using (var g = Graphics.FromImage(bmp))
@@ -45,12 +45,14 @@ public static class IconFactory
             float s = size;
             float pad = s * 0.06f;
             var face = new RectangleF(pad, pad, s - 2 * pad, s - 2 * pad);
-            using (var fill = new SolidBrush(pending ? Color.FromArgb(255, 236, 160) : Color.White)) g.FillEllipse(fill, face);
-            using (var rim = new Pen(SkyBlue, Math.Max(1.5f, s / 12f))) g.DrawEllipse(rim, face);
+            var rimColor = paused ? Color.FromArgb(150, 150, 150) : SkyBlue;
+            var faceColor = paused ? Color.FromArgb(225, 225, 225) : pending ? Color.FromArgb(255, 236, 160) : Color.White;
+            using (var fill = new SolidBrush(faceColor)) g.FillEllipse(fill, face);
+            using (var rim = new Pen(rimColor, Math.Max(1.5f, s / 12f))) g.DrawEllipse(rim, face);
 
             var c = new PointF(s / 2, s / 2);
             float r = face.Width / 2;
-            using (var tickPen = new Pen(SkyBlue, Math.Max(1f, s / 24f)))
+            using (var tickPen = new Pen(rimColor, Math.Max(1f, s / 24f)))
                 for (int i = 0; i < 12; i += 3)
                 {
                     double a = i * Math.PI / 6;
@@ -60,9 +62,9 @@ public static class IconFactory
 
             double hourAngle = hour * Math.PI / 6;
             double minuteAngle = minute * Math.PI / 30;
-            using var hand = new Pen(Color.FromArgb(20, 20, 20), Math.Max(1.5f, s / 11f)) { StartCap = LineCap.Round, EndCap = LineCap.Round };
+            using var hand = new Pen(paused ? Color.FromArgb(110, 110, 110) : Color.FromArgb(20, 20, 20), Math.Max(1.5f, s / 11f)) { StartCap = LineCap.Round, EndCap = LineCap.Round };
             g.DrawLine(hand, c, new PointF(c.X + (float)Math.Sin(hourAngle) * r * 0.5f, c.Y - (float)Math.Cos(hourAngle) * r * 0.5f));
-            using var minutePen = new Pen(Claret, Math.Max(1.2f, s / 15f)) { StartCap = LineCap.Round, EndCap = LineCap.Round };
+            using var minutePen = new Pen(paused ? Color.FromArgb(130, 130, 130) : Claret, Math.Max(1.2f, s / 15f)) { StartCap = LineCap.Round, EndCap = LineCap.Round };
             g.DrawLine(minutePen, c, new PointF(c.X + (float)Math.Sin(minuteAngle) * r * 0.78f, c.Y - (float)Math.Cos(minuteAngle) * r * 0.78f));
         }
         return bmp;

@@ -53,6 +53,22 @@ Settings...                      data folder, interval, autostart, hotkeys,
                                  hide activities from the report,
                                  reminders (minimize, flash, shake)
 
+Breaks, end of day and being away
+---------------------------------
+• Right-click the clock:
+  Pause questions    no questions for 30 min, 1 or 2 h or until "Resume questions" –
+                     the time keeps counting (e.g. during meetings or presentations)
+  Break              first logs what you were working on; the break is booked as "Break"
+                     (activity can be changed). If you come back later than planned,
+                     Kahraman asks: until the planned end or until now?
+  End of day         logs where you are and stops asking until the next day.
+  While something is paused, the clock is grey.
+• Kahraman also notices by itself when you're away: PC locked (Win+L), signed out,
+  shut down, sleep or no input for a long time. When you're back it asks what you did
+  until you left and whether the time in between was a break – the next morning the start
+  of work is logged. What is noticed, how long "no input" has to last and from which
+  duration it asks: Settings > Away.
+
 Files in the data folder
 ------------------------
 taetigkeiten.kahraman    activities, sub-activities and templates

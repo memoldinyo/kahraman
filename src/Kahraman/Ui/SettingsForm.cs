@@ -27,6 +27,14 @@ public sealed class SettingsForm : Form
     readonly ModernCheckBox chkShake = new() { Text = L.T("settings.shake"), AutoSize = true, Anchor = AnchorStyles.Left };
     readonly NumericUpDown numShake = new() { Minimum = 1, Maximum = 60, Width = 60, Anchor = AnchorStyles.Left };
     readonly ModernCheckBox chkShakeSound = new() { Text = L.T("settings.shakeSound"), AutoSize = true };
+    readonly ModernCheckBox chkAwayLock = new() { Text = L.T("settings.awayLock"), AutoSize = true };
+    readonly ModernCheckBox chkAwaySignOut = new() { Text = L.T("settings.awaySignOut"), AutoSize = true };
+    readonly ModernCheckBox chkAwayShutdown = new() { Text = L.T("settings.awayShutdown"), AutoSize = true };
+    readonly ModernCheckBox chkAwaySleep = new() { Text = L.T("settings.awaySleep"), AutoSize = true };
+    readonly ModernCheckBox chkAwayIdle = new() { Text = L.T("settings.awayIdle"), AutoSize = true, Anchor = AnchorStyles.Left };
+    readonly NumericUpDown numAwayIdle = new() { Minimum = 5, Maximum = 240, Width = 60, Anchor = AnchorStyles.Left };
+    readonly NumericUpDown numAwayMin = new() { Minimum = 1, Maximum = 120, Width = 60, Anchor = AnchorStyles.Left };
+    readonly TextBox txtBreakActivity = new() { Width = 200, Anchor = AnchorStyles.Left };
     readonly HiddenTabControl tabs = new() { Dock = DockStyle.Fill };
     readonly SegmentedControl segTheme = new(
         ("", L.T("theme.system")), ("", L.T("theme.light")), ("", L.T("theme.dark")));
@@ -50,7 +58,8 @@ public sealed class SettingsForm : Form
         tabs.TabPages.Add(BuildEvaluation());
         tabs.TabPages.Add(BuildHotkeys());
         tabs.TabPages.Add(BuildReminder());
-        tabs.SelectedIndex = Math.Clamp(tab, 0, 3);
+        tabs.TabPages.Add(BuildAway());
+        tabs.SelectedIndex = Math.Clamp(tab, 0, 4);
 
         var bottom = new FlowLayoutPanel { Dock = DockStyle.Bottom, FlowDirection = FlowDirection.RightToLeft, AutoSize = true, Padding = new Padding(6) };
         var cancel = new ModernButton { Text = L.T("button.cancel"), DialogResult = DialogResult.Cancel, AutoSize = true, MinimumSize = new Size(100, 30) };
@@ -83,6 +92,16 @@ public sealed class SettingsForm : Form
         chkShakeSound.Checked = s.ShakeSound;
         numShake.Enabled = chkShakeSound.Enabled = chkShake.Checked;
         chkShake.CheckedChanged += (_, _) => numShake.Enabled = chkShakeSound.Enabled = chkShake.Checked;
+        chkAwayLock.Checked = s.AwayOnLock;
+        chkAwaySignOut.Checked = s.AwayOnSignOut;
+        chkAwayShutdown.Checked = s.AwayOnShutdown;
+        chkAwaySleep.Checked = s.AwayOnSleep;
+        chkAwayIdle.Checked = s.AwayOnIdle;
+        numAwayIdle.Value = s.AwayIdleMinutes;
+        numAwayIdle.Enabled = chkAwayIdle.Checked;
+        chkAwayIdle.CheckedChanged += (_, _) => numAwayIdle.Enabled = chkAwayIdle.Checked;
+        numAwayMin.Value = s.AwayMinMinutes;
+        txtBreakActivity.Text = string.IsNullOrWhiteSpace(s.BreakActivity) ? L.T("away.breakActivity") : s.BreakActivity;
         var excluded = new HashSet<string>(s.ExcludedActivities, StringComparer.OrdinalIgnoreCase);
         if (app.Store is not null && app.Log is not null)
             foreach (var name in app.AllActivityNames())
@@ -266,6 +285,46 @@ public sealed class SettingsForm : Form
         return page;
     }
 
+    TabPage BuildAway()
+    {
+        var page = new TabPage(L.T("settings.tabAway")) { Padding = new Padding(10) };
+        var g = new TableLayoutPanel { Dock = DockStyle.Top, ColumnCount = 3, AutoSize = true, AutoSizeMode = AutoSizeMode.GrowAndShrink };
+        g.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        g.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        g.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+        var blurb = new Label { Text = L.T("settings.awayInfo"), AutoSize = true, MaximumSize = new Size(540, 0), Margin = new Padding(3, 3, 3, 10) };
+        g.Controls.Add(blurb, 0, 0);
+        g.SetColumnSpan(blurb, 3);
+        int row = 1;
+        foreach (var chk in new[] { chkAwayLock, chkAwaySignOut, chkAwayShutdown, chkAwaySleep })
+        {
+            g.Controls.Add(chk, 0, row);
+            g.SetColumnSpan(chk, 3);
+            row++;
+        }
+        g.Controls.Add(chkAwayIdle, 0, row);
+        g.Controls.Add(numAwayIdle, 1, row);
+        g.Controls.Add(new Label { Text = L.T("settings.awayMinutes"), AutoSize = true, Anchor = AnchorStyles.Left }, 2, row);
+        row++;
+
+        var minLabel = new Label { Text = L.T("settings.awayMin"), AutoSize = true, Anchor = AnchorStyles.Left, Margin = new Padding(3, 18, 3, 3) };
+        numAwayMin.Margin = new Padding(3, 16, 3, 3);
+        g.Controls.Add(minLabel, 0, row);
+        g.Controls.Add(numAwayMin, 1, row);
+        g.Controls.Add(new Label { Text = L.T("settings.awayMinutes"), AutoSize = true, Anchor = AnchorStyles.Left, Margin = new Padding(3, 18, 3, 3) }, 2, row);
+        row++;
+        g.Controls.Add(new Label { Text = L.T("settings.breakActivity"), AutoSize = true, Anchor = AnchorStyles.Left, Margin = new Padding(3, 10, 3, 3) }, 0, row);
+        txtBreakActivity.Margin = new Padding(3, 8, 3, 3);
+        g.Controls.Add(txtBreakActivity, 1, row);
+        g.SetColumnSpan(txtBreakActivity, 2);
+        row++;
+        var more = new Label { Text = L.T("settings.awayMenu"), AutoSize = true, MaximumSize = new Size(540, 0), ForeColor = Theme.Current.Muted, Margin = new Padding(3, 16, 3, 3) };
+        g.Controls.Add(more, 0, row);
+        g.SetColumnSpan(more, 3);
+        page.Controls.Add(g);
+        return page;
+    }
+
     void ChooseDir()
     {
         using var dlg = new FolderBrowserDialog { Description = L.T("settings.dataDirDialog"), SelectedPath = dataDir, UseDescriptionForTitle = true };
@@ -303,6 +362,15 @@ public sealed class SettingsForm : Form
         s.Shake = chkShake.Checked;
         s.ShakeMinutes = (int)numShake.Value;
         s.ShakeSound = chkShakeSound.Checked;
+        s.AwayOnLock = chkAwayLock.Checked;
+        s.AwayOnSignOut = chkAwaySignOut.Checked;
+        s.AwayOnShutdown = chkAwayShutdown.Checked;
+        s.AwayOnSleep = chkAwaySleep.Checked;
+        s.AwayOnIdle = chkAwayIdle.Checked;
+        s.AwayIdleMinutes = (int)numAwayIdle.Value;
+        s.AwayMinMinutes = (int)numAwayMin.Value;
+        var breakName = txtBreakActivity.Text.Trim();
+        s.BreakActivity = breakName.Length == 0 || breakName == L.T("away.breakActivity") ? null : breakName;
         if (!Installer.IsPackaged) SetAutostart(chkAutostart.Checked);
         s.Save();
         DialogResult = DialogResult.OK;

@@ -45,6 +45,20 @@ public sealed class Settings
     public int ShakeMinutes { get; set; } = 2;
     /// <summary>Beim Rütteln einen Warnton spielen.</summary>
     public bool ShakeSound { get; set; } = true;
+    /// <summary>Bei der Rückkehr nachfragen nach: Sperren (Win+L), Abmelden, Herunterfahren, Energiesparmodus, Inaktivität.</summary>
+    public bool AwayOnLock { get; set; } = true;
+    public bool AwayOnSignOut { get; set; } = true;
+    public bool AwayOnShutdown { get; set; } = true;
+    public bool AwayOnSleep { get; set; } = true;
+    public bool AwayOnIdle { get; set; } = true;
+    /// <summary>Ohne Maus und Tastatur gilt man nach so vielen Minuten als weg (5 bis 240).</summary>
+    public int AwayIdleMinutes { get; set; } = 30;
+    /// <summary>Kürzere Abwesenheiten werden nicht nachgefragt (1 bis 120 Minuten).</summary>
+    public int AwayMinMinutes { get; set; } = 10;
+    /// <summary>Tätigkeit, unter der Pausen gebucht werden; leer = Wort der eingestellten Sprache.</summary>
+    public string? BreakActivity { get; set; }
+    /// <summary>Gerade weg (bemerkt oder Pause/Feierabend über das Menü); übersteht ein Herunterfahren.</summary>
+    public Core.AwayState? Away { get; set; }
     public Dictionary<string, WindowPlacement> Windows { get; set; } = [];
 
     [JsonIgnore] public string FilePath { get; private set; } = DefaultFile;
@@ -70,6 +84,8 @@ public sealed class Settings
         s.IntervalMinutes = Math.Clamp(s.IntervalMinutes, 1, 24 * 60);
         s.RecentCount = Math.Clamp(s.RecentCount, 0, 50);
         s.ShakeMinutes = Math.Clamp(s.ShakeMinutes, 1, 60);
+        s.AwayIdleMinutes = Math.Clamp(s.AwayIdleMinutes, 5, 240);
+        s.AwayMinMinutes = Math.Clamp(s.AwayMinMinutes, 1, 120);
         return s;
     }
 

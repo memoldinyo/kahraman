@@ -53,6 +53,23 @@ Paramètres...                              dossier de données, intervalle des 
                                            raccourcis, masquer des activités du bilan,
                                            rappel (réduire, clignoter, secouer)
 
+Pause, fin de journée et absence
+--------------------------------
+• Clic droit sur l'horloge :
+  Suspendre les questions   aucune question pendant 30 min, 1 ou 2 h ou jusqu'à
+                     « Reprendre les questions » – le temps continue de compter
+                     (p. ex. en réunion ou en présentation)
+  Pause              enregistre d'abord ce sur quoi tu travaillais ; la pause est comptée
+                     comme « Pause » (activité modifiable). Si tu reviens plus tard que prévu,
+                     Kahraman demande : jusqu'à la fin prévue ou jusqu'à maintenant ?
+  Fin de journée     enregistre où tu en es et ne pose plus de questions jusqu'au lendemain.
+  Tant que quelque chose est suspendu, l'horloge est grise.
+• Kahraman remarque aussi tout seul quand tu es absent : PC verrouillé (Win+L), session
+  fermée, PC éteint, veille ou longue absence de saisie. À ton retour, il demande ce que tu
+  as fait jusqu'à ton départ et si le temps entre-deux était une pause – le lendemain matin,
+  le début du travail est enregistré. Ce qui est détecté, la durée sans saisie et à partir
+  de quelle durée il demande : Paramètres > Absence.
+
 Fichiers dans le dossier de données
 -----------------------------------
 taetigkeiten.kahraman      activités, sous-activités et modèles

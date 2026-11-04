@@ -49,6 +49,10 @@ QUICK GUIDE
   When collapsed they only appear if one is suggested for the activity; Kahraman
   remembers whether you last expanded or collapsed them.
 * The question cannot be closed; it only goes away with an entry.
+* Menu "Pause questions", "Break" and "End of day": no questions during meetings,
+  breaks booked as "Break", nothing asked until the next day. Kahraman also notices
+  when you lock the PC, sign out, shut down, sleep or stop typing, and asks when you
+  are back how the time should be booked (Settings > Away).
 * F3 in the activity field searches the list; right-click in the lists colours or
   deletes entries.
 * "Report..." shows hours and days (8 h) per week, month, quarter and year.

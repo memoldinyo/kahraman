@@ -1,5 +1,29 @@
 # Änderungen
 
+## 2.2.0 – 04.11.2026
+
+### Neu
+- **Pause und Feierabend im Menü** (Rechtsklick auf das Zifferblatt):
+  - *Fragen pausieren* (30 Min., 1 Std., 2 Std., bis „Fragen fortsetzen“): keine Abfragen, die Zeit zählt weiter –
+    z. B. bei Besprechungen oder Präsentationen.
+  - *Pause* (gleiche Dauern): trägt zuerst die Arbeit bis jetzt ein, die Pause wird als „Pause“ gebucht. Wer später
+    als geplant zurückkommt, wird gefragt: bis zum geplanten Ende oder bis jetzt? *Pause beenden* bucht bis jetzt.
+  - *Feierabend*: trägt den letzten Stand ein und fragt bis zum nächsten Tag nicht mehr; *Feierabend aufheben*
+    für den Fall, dass man doch noch einmal arbeitet.
+  - Solange pausiert ist, ist das Zifferblatt grau; der Tooltip zeigt z. B. „Pause bis 12:30“.
+- **Abwesenheit wird bemerkt:** Sperren (Win+L), Abmelden, Herunterfahren/Neustart, Energiesparmodus/Ruhezustand
+  und Inaktivität (keine Maus/Tastatur). Bei der Rückkehr fragt Kahraman, woran man bis zum Gehen gearbeitet hat
+  (Uhrzeit und Tätigkeit vorausgefüllt) und ob die Zeit dazwischen eine Pause war; am nächsten Tag wird der
+  Arbeitsbeginn eingetragen. Während man weg ist, kommen keine Abfragen. Der Zustand übersteht ein Herunterfahren.
+- **Einstellungen › Abwesenheit:** jede Erkennung einzeln ein-/ausschaltbar, Minuten bis zur Inaktivität (5–240),
+  Mindestdauer für eine Rückfrage (1–120 Minuten), Name der Tätigkeit für Pausen.
+
+### Geändert
+- Die Abfrage schlägt nach einer Pause oder einem Arbeitsbeginn die letzte Arbeitstätigkeit vor, nicht „Pause“ bzw. „Start“.
+- Hilfe in allen 8 Sprachen um „Pause, Feierabend und Abwesenheit“ ergänzt.
+- Tests: `AwayTests` (Buchungslogik); `testdata/away-test.ps1` und `testdata/pause-test.ps1` prüfen Rückfrage und
+  Menü mit einer Testinstanz.
+
 ## 2.1.2 – 04.11.2026
 
 ### Geändert

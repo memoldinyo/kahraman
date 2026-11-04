@@ -53,6 +53,22 @@ Einstellungen...                 Datenordner, Abfrageabstand, Autostart, Tastenk
                                  Tätigkeiten aus der Auswertung ausblenden,
                                  Erinnerung (Minimieren, Blinken, Rütteln)
 
+Pause, Feierabend und Abwesenheit
+---------------------------------
+• Rechtsklick auf das Zifferblatt:
+  Fragen pausieren   keine Abfragen für 30 Min., 1 oder 2 Std. oder bis "Fragen fortsetzen" –
+                     die Zeit zählt weiter (z. B. bei Besprechungen oder Präsentationen)
+  Pause              trägt zuerst ein, woran du gearbeitet hast; die Pause wird als "Pause"
+                     gebucht (Tätigkeit einstellbar). Kommst du später als geplant zurück,
+                     fragt Kahraman: bis zum geplanten Ende oder bis jetzt?
+  Feierabend         trägt den letzten Stand ein und fragt bis zum nächsten Tag nicht mehr.
+  Solange etwas pausiert ist, ist das Zifferblatt grau.
+• Kahraman merkt auch selbst, wenn du weg bist: Rechner gesperrt (Win+L), abgemeldet,
+  heruntergefahren, Energiesparmodus oder lange keine Eingabe. Bei der Rückkehr fragt es,
+  was du bis zum Gehen gemacht hast und ob die Zeit dazwischen eine Pause war – am nächsten
+  Morgen wird der Arbeitsbeginn eingetragen. Was davon bemerkt wird, wie lange "keine Eingabe"
+  dauern muss und ab welcher Dauer gefragt wird: Einstellungen > Abwesenheit.
+
 Dateien im Datenordner
 ----------------------
 taetigkeiten.kahraman    Tätigkeiten, Untertätigkeiten und Vorlagen

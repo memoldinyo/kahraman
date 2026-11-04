@@ -52,6 +52,11 @@ KURZANLEITUNG
   Eingeklappt erscheinen sie nur, wenn für die Tätigkeit eine vorgeschlagen wird; Kahraman
   merkt sich, ob du sie zuletzt auf- oder zugeklappt hast.
 * Die Abfrage lässt sich nicht schließen, sie verschwindet erst mit einem Eintrag.
+* Menü "Fragen pausieren", "Pause" und "Feierabend": keine Abfragen in Besprechungen,
+  Pausen werden als "Pause" gebucht, bis zum nächsten Tag keine Fragen. Kahraman merkt
+  auch selbst, wenn du den Rechner sperrst, dich abmeldest, ihn herunterfährst, er schläft
+  oder lange keine Eingabe kommt, und fragt bei der Rückkehr, wie die Zeit gebucht werden
+  soll (Einstellungen > Abwesenheit).
 * F3 im Tätigkeitsfeld sucht in der Liste, Rechtsklick in den Listen färbt Einträge ein
   oder löscht sie.
 * Menü "Auswertung..." zeigt Stunden und Tage (8 h) pro Woche, Monat, Quartal und Jahr.

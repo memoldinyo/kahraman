@@ -54,7 +54,9 @@ public sealed class InputForm : Form
 
     public LogEntry? Result { get; private set; }
 
-    public InputForm(AppServices app, InputMode mode, LogEntry? initial = null, DateTime? lowerBound = null, DateTime? upperBound = null)
+    /// <param name="question">Eigene Frage statt der zufälligen (z. B. vor Pause oder Feierabend).</param>
+    public InputForm(AppServices app, InputMode mode, LogEntry? initial = null, DateTime? lowerBound = null, DateTime? upperBound = null,
+        string? question = null)
     {
         this.app = app;
         this.mode = mode;
@@ -75,7 +77,7 @@ public sealed class InputForm : Form
         MaximizeBox = false;
         HelpButton = false;
 
-        lblQuestion.Text = mode == InputMode.Popup ? Quips.Question(DateTime.Now, app.Log.Last?.Activity, Random.Shared) : L.T("edit.question");
+        lblQuestion.Text = question ?? (mode == InputMode.Popup ? Quips.Question(DateTime.Now, app.Log.Last?.Activity, Random.Shared) : L.T("edit.question"));
         lblQuestion.Height = Font.Height + LogicalToDeviceUnits(10);
         lblLast.Height = lblPath.Height = Font.Height + 1;
         btnOk.Text = mode == InputMode.Popup ? Quips.OkText(Random.Shared) : L.T("button.save");

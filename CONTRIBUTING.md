@@ -58,6 +58,9 @@ Every language has three files in `src/Kahraman.Core/i18n/`: `ui.<code>.json` (i
   `Application.Run` made the report window hang later.
 - **The question window** can't be closed by the user on purpose (CS_NOCLOSE, `OnFormClosing`); it closes with an entry
   or when Kahraman quits.
+- **Away, breaks, end of day:** `AwayWatcher` notices lock/sign-out/shutdown/sleep/idle (Windows `SystemEvents`,
+  `GetLastInputInfo`) and stores the state in `settings.json` so it survives a shutdown; `Away` in Kahraman.Core
+  decides which entries are appended on return (tested in `AwayTests`), `AwayForm` asks.
 - **Command line:** `--logfile`, `--auswertung` (report), `--einstellungen` (settings), `--beenden` (quit),
   `--portable`, `--uninstall`, `--settings <file.json>`.
 - **App icon:** edit `src/Kahraman/IconVorlage.png`, then run `testdata/make-icon.ps1` (writes `kahraman.ico` and `images/icon.png`).

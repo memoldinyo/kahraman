@@ -53,6 +53,22 @@ Impostazioni...                    cartella dati, intervallo delle domande, avvi
                                    scorciatoie, attività da nascondere nel riepilogo,
                                    promemoria (riduzione a icona, lampeggio, scossa)
 
+Pausa, fine giornata e assenza
+------------------------------
+• Clic destro sull'orologio:
+  Sospendi domande   nessuna domanda per 30 min, 1 o 2 ore o fino a "Riprendi domande" –
+                     il tempo continua a contare (ad es. in riunione o durante presentazioni)
+  Pausa              registra prima ciò su cui stavi lavorando; la pausa viene registrata
+                     come "Pausa" (attività modificabile). Se torni più tardi del previsto,
+                     Kahraman chiede: fino alla fine prevista o fino ad ora?
+  Fine giornata      registra il punto in cui sei e non fa più domande fino al giorno dopo.
+  Finché qualcosa è sospeso, l'orologio è grigio.
+• Kahraman nota anche da solo quando sei via: PC bloccato (Win+L), disconnesso, spento,
+  sospensione o nessun input per molto tempo. Al tuo ritorno chiede cosa hai fatto fino
+  a quando sei andato via e se il tempo in mezzo era una pausa – il mattino dopo viene
+  registrato l'inizio del lavoro. Cosa viene rilevato, quanto deve durare "nessun input" e
+  da quale durata chiede: Impostazioni > Assenza.
+
 File nella cartella dati
 ------------------------
 taetigkeiten.kahraman    attività, sottoattività e modelli

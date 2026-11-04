@@ -1,4 +1,5 @@
-﻿param([string]$Exe = "$(Split-Path $PSScriptRoot)\dist\Kahraman-2.1.1\Kahraman.exe", [int]$Idle = 60)
+﻿param([string]$Exe = (Get-ChildItem "$(Split-Path $PSScriptRoot)\dist\Kahraman-*\Kahraman.exe" | Sort-Object LastWriteTime | Select-Object -Last 1).FullName,
+      [int]$Idle = 60)
 # Misst Speicher und CPU einer Test-Instanz (eigene Einstellungen, Demodaten): nach dem Start, nach dem Öffnen der
 # Fenster und im Leerlauf. Das echte Kahraman bleibt unberührt.
 $ErrorActionPreference = "Stop"

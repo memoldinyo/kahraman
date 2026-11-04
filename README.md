@@ -49,6 +49,10 @@ Friday-afternoon cheers – and the OK button might just say *"Go for it"*.
 - 📊 **Reports** – day, week, month, quarter, year or any period; by activity, sub-activity or comment; hours and days;
   copy to Excel with one click, including per-day details.
 - ✏️ **Edit history** – filter, correct, insert or rename past entries.
+- ☕ **Breaks and end of day** – pause the questions during a meeting, take a break or call it a day from the
+  tray menu. Kahraman also notices when you lock your PC, sign out, shut down, go to sleep or stop typing, and asks
+  when you're back how the time should be booked – nothing gets lost, nothing is over-booked (configurable under
+  *Settings › Away*).
 - 🔔 **Hard to ignore** – the question stays on top and can't be closed until it's answered; optionally the title bar
   or taskbar icon flashes, the window gives a gentle shake, or you allow minimising.
 - 🌗 **Light and dark mode** – follows Windows or set it yourself, with a modern Windows 11 look.
@@ -101,6 +105,8 @@ Requirements: Windows 10 or 11, 64-bit.
 - Every entry stands for the time **since the previous entry**.
 - The first entry of a day only marks the start of work – just log *"Start"* in the morning.
 - Hours are shown as decimals (1 h 15 min = 1.25); one day = 8 hours.
+- Away from the PC (lunch, end of day)? Kahraman asks when you're back what you did until you left and whether the
+  time in between was a break; the next morning it logs your start of work.
 
 ## Your data
 

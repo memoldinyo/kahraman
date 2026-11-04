@@ -53,6 +53,22 @@ Ayarlar                          veri klasörü, soru aralığı, otomatik başl
                                  görevleri rapordan gizleme,
                                  hatırlatma (küçültme, yanıp sönme, sallanma)
 
+Mola, gün sonu ve uzaklık
+-------------------------
+• Saate sağ tıkla:
+  Soruları duraklat  30 dk, 1 veya 2 saat ya da "Soruları sürdür"e kadar soru yok –
+                     süre saymaya devam eder (ör. toplantılarda veya sunumlarda)
+  Mola               önce ne üzerinde çalıştığını kaydeder; mola "Mola" olarak kaydedilir
+                     (etkinlik değiştirilebilir). Planlanandan geç dönersen Kahraman sorar:
+                     planlanan bitişe kadar mı, şu ana kadar mı?
+  Günü bitir         son durumu kaydeder ve ertesi güne kadar soru sormaz.
+  Bir şey duraklatıldığı sürece saat gri görünür.
+• Kahraman uzakta olduğunu kendisi de fark eder: bilgisayar kilitlendi (Win+L), oturum
+  kapatıldı, kapatıldı, uyku modu veya uzun süre giriş yok. Döndüğünde, gitmeden önce ne
+  yaptığını ve aradaki sürenin mola olup olmadığını sorar – ertesi sabah işe başlama
+  kaydedilir. Neyin fark edileceği, "giriş yok" süresi ve hangi süreden sonra sorulacağı:
+  Ayarlar > Uzaklık.
+
 Veri klasöründeki dosyalar
 --------------------------
 taetigkeiten.kahraman    görevler, alt görevler ve şablonlar
