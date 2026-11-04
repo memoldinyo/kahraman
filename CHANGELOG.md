@@ -1,5 +1,14 @@
 # Änderungen
 
+## 2.1.2 – 04.11.2026
+
+### Geändert
+- **Weniger Arbeitsspeicher:** Die EXE wird nicht mehr komprimiert gebaut – komprimiert musste .NET sie beim Start
+  ganz in den Speicher entpacken. Ein laufendes Kahraman braucht dadurch rund 20 statt 70 MB privaten Speicher;
+  der Download bleibt fast gleich groß (die EXE selbst belegt 111 statt 50 MB auf der Festplatte).
+- Keine Hintergrund-Speicherbereinigung und keine Laufzeit-Leistungsmessung (PGO) mehr: weniger Threads und
+  CPU im Leerlauf. `testdata/resource-test.ps1` misst Speicher und CPU einer Testinstanz.
+
 ## 2.1.1 – 30.10.2026
 
 ### Neu
