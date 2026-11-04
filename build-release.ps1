@@ -1,5 +1,7 @@
 # Baut das Weitergabe-Paket: dist\Kahraman-<Version>-win-x64.zip
 # Enthält eine eigenständige Kahraman.exe (inkl. .NET, keine Installation von .NET nötig), Anleitungen und Lizenz.
+# Die EXE ist bewusst nicht komprimiert: komprimiert müsste .NET sie beim Start ganz in den Speicher entpacken
+# (rund 50 MB mehr Arbeitsspeicher, solange Kahraman läuft). Das ZIP ist trotzdem kaum größer.
 $ErrorActionPreference = "Stop"
 Set-Location $PSScriptRoot
 
@@ -14,7 +16,7 @@ dotnet publish src/Kahraman -c Release -r win-x64 -o $out `
     --self-contained true `
     -p:PublishSingleFile=true `
     -p:IncludeNativeLibrariesForSelfExtract=true `
-    -p:EnableCompressionInSingleFile=true `
+    -p:EnableCompressionInSingleFile=false `
     -p:DebugType=none
 if ($LASTEXITCODE -ne 0) { throw "Publish fehlgeschlagen" }
 

@@ -16,6 +16,9 @@
     <ApplicationIcon>kahraman.ico</ApplicationIcon>
     <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
     <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
+    <!-- Sparsam im Hintergrund: kein eigener GC-Hintergrundthread, keine PGO-Messungen während der Laufzeit. -->
+    <ConcurrentGarbageCollection>false</ConcurrentGarbageCollection>
+    <TieredPGO>false</TieredPGO>
   </PropertyGroup>
 
   <ItemGroup>
